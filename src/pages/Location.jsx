@@ -37,7 +37,7 @@ export const Location = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start overflow-hidden">
           {/* Informações de Endereço */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

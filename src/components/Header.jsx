@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Scissors } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,12 +32,12 @@ export const Header = () => {
   ];
 
   return (
-    <motion.header
+    <header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? 'bg-background/80 backdrop-blur-lg shadow-lg'
           : 'bg-transparent'
       }`}
@@ -45,7 +45,7 @@ export const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.div
+          <div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => scrollToSection('home')}
@@ -56,12 +56,12 @@ export const Header = () => {
             <span className="text-xl font-bold font-['Playfair_Display'] text-foreground">
               Barbearia Premium
             </span>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <motion.button
+              <button
                 key={item.id}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -69,7 +69,7 @@ export const Header = () => {
                 className="text-foreground hover:text-amber-600 transition-colors duration-200 font-medium"
               >
                 {item.label}
-              </motion.button>
+              </button>
             ))}
             <ThemeToggle />
           </nav>
@@ -77,7 +77,7 @@ export const Header = () => {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-4">
             <ThemeToggle />
-            <motion.button
+            <button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg bg-secondary hover:bg-accent transition-colors"
@@ -88,14 +88,14 @@ export const Header = () => {
               ) : (
                 <Menu className="w-6 h-6 text-foreground" />
               )}
-            </motion.button>
+            </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.nav
+            <nav
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -104,21 +104,21 @@ export const Header = () => {
             >
               <div className="flex flex-col gap-2 py-4 bg-card rounded-lg shadow-lg">
                 {navItems.map((item) => (
-                  <motion.button
+                  <button
                     key={item.id}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item.id)}
                     className="px-4 py-3 text-left text-foreground hover:bg-accent transition-colors rounded-lg"
                   >
                     {item.label}
-                  </motion.button>
+                  </button>
                 ))}
               </div>
-            </motion.nav>
+            </nav>
           )}
         </AnimatePresence>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

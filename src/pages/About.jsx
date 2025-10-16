@@ -46,7 +46,7 @@ export const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-amber-800 mx-auto mb-6"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 overflow-hidden">
           {/* Texto Principal */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

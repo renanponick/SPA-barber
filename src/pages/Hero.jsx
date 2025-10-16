@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 export const Hero = () => {
@@ -12,11 +11,11 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-amber-950/10"
+      className="relative pt-20 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-amber-950/10"
     >
       {/* Elementos decorativos de fundo */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
+        <div
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 90, 0],
@@ -28,7 +27,7 @@ export const Hero = () => {
           }}
           className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-amber-600/5 to-transparent rounded-full blur-3xl"
         />
-        <motion.div
+        <div
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [90, 0, 90],
@@ -46,7 +45,7 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -55,10 +54,10 @@ export const Hero = () => {
             <span className="px-4 py-2 bg-amber-600/10 border border-amber-600/20 rounded-full text-amber-600 dark:text-amber-500 text-sm font-medium">
               ✨ Barbearia Premium
             </span>
-          </motion.div>
+          </div>
 
           {/* Título principal */}
-          <motion.h1
+          <h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -69,10 +68,10 @@ export const Hero = () => {
             <span className="bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">
               Sofisticação
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subtítulo */}
-          <motion.p
+          <p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -80,16 +79,16 @@ export const Hero = () => {
           >
             Transforme seu visual com os melhores profissionais. Cortes
             modernos, barba impecável e atendimento personalizado.
-          </motion.p>
+          </p>
 
           {/* Botões de CTA */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.button
+            <button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -104,19 +103,19 @@ export const Hero = () => {
               className="px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-800 text-white font-semibold rounded-lg hover:from-amber-700 hover:to-amber-900 transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
             >
               Agendar Horário
-            </motion.button>
-            <motion.button
+            </button>
+            <button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToServices}
               className="px-8 py-4 bg-card border-2 border-border text-foreground font-semibold rounded-lg hover:bg-accent transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
             >
               Ver Serviços
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
 
           {/* Estatísticas */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -136,18 +135,18 @@ export const Hero = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Indicador de scroll */}
-      <motion.div
+      <div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-20 lg:bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <motion.button
+        <button
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           onClick={scrollToServices}
@@ -155,8 +154,8 @@ export const Hero = () => {
           aria-label="Rolar para baixo"
         >
           <ChevronDown className="w-6 h-6 text-muted-foreground" />
-        </motion.button>
-      </motion.div>
+        </button>
+      </div>
     </section>
   );
 };
